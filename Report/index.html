@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Traffic Light Report 2016</title>
+  <meta name="description" content="html page for traffic light challenge in Middlesex University of London />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <h1><a href="index.html">Traffic Light<span class="logo_colour">Report 2016</span></a></h1>
+          <h2>Ankur, Antanas, Rimma, Kirushihan,Dr Dre Andre, Welid </h2>
+        </div>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+	  <h1>Our team..</h1>
+	  <h2>Antanas Icikovic </h2>
+	  <h3> M00537517 </h3>
+	  <h2>Ankur Kalambe</h2>
+	  <h3> M00557380 </h3>
+	  <h2>Rimma Chepik</h2>
+	  <h3> M00611246 </h3>
+	  <h2>Kirushihan Kantharupan</h2>
+	  <h3> M00524458 </h3>
+	  <h2>Andre Ibidapo</h2>
+	  <h3> M00531863 </h3>
+	  <h2>Welid Mohammed</h2>
+	  <h3> M00608447 </h3>
+	  <h2>Kojack Kambaba</h2>
+	  <h3> M00552905 </h3>
+        <h1>Our progress...</h1>
+        <h4>Finished the report</h4>
+        <h5>November 24, 2016</h5>
+		<h4>Finished the hardware color coding.</h4>
+        <h5>November 24, 2016</h5>
+        <h4>Fixed the problem with asip</h4>
+        <h5>November 22, 2016</h5>
+        <h4>Finished the code with sensors.</h4>
+        <h5>November 21, 2016</h5>
+		<h4>Finished 7-Segment display</h4>
+        <h5>November 18, 2016</h5>
+		<h4>Finished buttons and sequences with lights and wiring.</h4>
+        <h5>November 14, 2016</h5>
+        <h1>Resources</h1>
+        <ul>
+          <li>Arduino (running racket asip), LEDs (red, orange, green), resistors, push buttons, any sensors
+			you may need, and so on.</li>
+          <li>Racket, the AsipMain.rkt library.</li>
+          <li>Sample racket code showing a simple prototype for a single traffic light.</li>
+          <li>Good knowledge Tony had on racket.</li>
+		  <li>Lots of "Budweiser" beer cans. </li>
+        </ul>
+      </div>
+      <div id="content">
+        <h1>Introduction to traffic light challenge...</h1>
+        <p>You are part of a team working as consultants for Transport for London on investigating the use of technology to help make improvements to the road network.</p>
+        <p>The challenge your team are faced with is to design and prototype a traffic light system to safely
+			control the flow of traffic along a road. As an example, in the road layout shown in figure 1,
+			roadworks along the main road mean that a temporary traffic light system must be installed,
+			with two sets of lights located at the two points marked Z, allowing traffic to flow alternately
+			from left-to-right and then right-to-left.</p>
+		<center><img src="style/roadwork.png" alt="RoadWork - Figure 1" style="width:304px;height:228px;">
+		<h5> Figure 1: A Road Layout </h5>
+		</center>
+        <p>As this work is exploratory in nature, the client is interested in innovation and designs that
+			creative responses to the problem, rather than the delivery of complete working products . So
+			that means that an interesting idea or an unusual experiment may be just as good as a more
+			functional but less innovative prototype.</p>
+        <h1>Our idea...</h1>
+		<ul>
+        <li> Three sets of traffic lights [(Z),(Z),(X)], plus the lights for the pedestrian crossing[(Y),(Y)]. </li>
+		<li> 7-Segment display to show the time for pedastrians to finish <br> passing the crossing before it changes back to red. </li>
+		<li> Simulate a photocam at the way X if the car crosses on the red light. </li>
+		<li> Buttons to trigger a pedastrian crossing. </li>
+		<li> The sequence of traffic lights should change on it's own. </li>
+		</ul>
+		
+		<h1>How we did it...</h1>
+        <p>One of the first things we did was to create a sequence of the traffic light events. This was a list of sorts where we listed what any given traffic light would be doing relative to the others. This is necessary as we need a precise sequence otherwise the system would be a complete failure.</p>
+       <center> <table style="width:70%; border-spacing:0;">
+          <tr><th>Left Z light</th><th>Right Z light</th><th>Light X</th><th>Light Y </th></tr>
+          <tr><td>RED</td><td>RED</td><td>RED</td><td>RED</td></tr>
+          <tr><td>RED+AMBER</td><td>RED</td><td>RED</td><td>RED</td></tr>
+          <tr><td>GREEN</td><td>RED</td><td>RED</td><td>RED</td></tr>
+          <tr><td>AMBER</td><td>RED</td><td>RED</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED</td><td>RED</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED+AMBER</td><td>RED</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>GREEN</td><td>RED</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>AMBER</td><td>RED</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED</td><td>RED</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED</td><td>RED+AMBER</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED</td><td>GREEN</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED</td><td>AMBER</td><td>RED</td></tr>
+		  <tr><td>RED</td><td>RED</td><td>RED</td><td>GREEN</td></tr>  
+        </table></center>
+		<h3> Finite State Machine </h3>
+		<center><img src="style/fsm.png" alt="RoadWork - Figure 1" style="width:350px;height:503;">
+		<h5> Figure 1: FSM </h5>
+		</center>
+		<p>In order to create the light states we used binary integers in a list as can be seen below. It was a list of eleven digit binary values with each of the three numbers representing a traffic light. Meaning 1 to light up and 0 to keep it off. This isn’t too complex and was a good solution for describing lights. The first number represented the red light while the second was an amber and the last was green. Additionally at the end of each line there is a two digit value where we can see the pedestrian crossing being represented. List were added into hash table, for easier reference in the future.</p>
+      <div style="width: 500px;border: 1px dashed black;padding: 25px;margin: 25px;">
+	  <h5><center> Code snippet of hash tables containing list's of integers. </h5>  </center> <br>
+	  <code>
+	                 1 (list 1 0 0  1 0 0  1 0 0   0 1 ) ;  (1st - RED, 2nd - RED, 3rd - RED.) RED <br>
+                     2 (list 1 1 0  1 0 0  1 0 0    0 1) ;  (1st - RED + AMBER, 2nd - RED, 3rd - RED.) RED  <br>
+                     3 (list 0 0 1  1 0 0  1 0 0    0 1)  ; (1st - GREEN , 2nd - RED , 3rd - RED.)RED <br>
+                     4 (list 0 1 0  1 0 0  1 0 0    0 1)  ; (1st - AMBER, 2nd - RED , 3rd - RED.) RED <br>
+                     5 (list 1 0 0  1 0 0  1 0 0    0 1)  ; (1st - RED, 2nd - RED  , 3rd - RED.) RED <br>
+                     6 (list 1 0 0  1 1 0  1 0 0    0 1)  ; (1st - RED, 2nd - RED + AMBER , 3rd - RED.)RED  <br>
+                     7 (list 1 0 0  0 0 1  1 0 0    0 1)  ; (1st - RED, 2nd - GREEN , 3rd - RED .)RED <br>
+                     8 (list 1 0 0  0 1 0  1 0 0    0 1)  ; (1st - RED, 2nd - AMBER , 3rd - RED.)RED  <br>
+                     9 (list 1 0 0  1 0 0  1 0 0    0 1)  ; (1st - RED , 2nd - RED , 3rd -RED .) RED     <br>         
+                     10 (list 1 0 0  1 0 0  1 1 0   0 1)  ; (1st - RED, 2nd - RED , 3rd - AMBER.) RED  <br>
+                     11 (list 1 0 0  1 0 0  0 0 1   0 1 )  ; (1st - RED, 2nd - RED  , 3rd - GREEN .)RED <br>
+                     12 (list 1 0 0  1 0 0  0 1 0   0 1 ); (1st - RED, 2nd - RED , 3rd - AMBER.)RED  <br>
+                     13 (list 1 0 0  1 0 0  1 0 0  1 0  )  ; (1st - RED, 2nd - RED, 3rd - RED.)GREEN  <br>
+					 <br>
+					 <center>
+		<h5>1 0 0 - Red | 0 1 0 - Amber | 0 0 1 - Green | 1 1 0 - Red&Amber </h5></center>
+	  </code>
+	  </div>
+	  <p> We have used the code that was provided with a challenge, to set lights according to list, and check the previous state, changing it into the new state.
+	  <ul>
+	  <li> (getNextState) - Checks the previous state and decides on a new one</li>
+	  <li> (setLights) - takes a list of itegers to set lights. </li>
+	  <li> (outputCurrentState) - uses function setLights on list of pins "lights" with the intiger list "lightState" </li>
+	  <li> (gotoNextState) - Checks for the current state and changes to the second one. </li>
+	  </ul>
+	  <p> To change the states with a sequence we have used a code saving time from (current-milliseconds) and comparing it to value. Creating a simple loop.
+	  We used a simple approach by calling function (gotoNextState) and sleeping it for a set value to control the time between lights changing. </p>
+	  <center><img src="style/1pic.jpg" alt="Picture 1 - First stage" style="width:304px;height:228px;">
+		<h5> Picture 1 : First stage </h5>
+		</center>
+		<p> After this, we have added 7 segment display with buttons for pedastrian crossing. We did so, by creating a function that catches if the button was pressed, and after cicle finish it's
+		normal sequence it changes to state 13. For 7 segment display, we created different functions to call each number starting from 9 and ending at 1 before changing it to red light ( pedastrian crossing). </p>
+	  	  <center><img src="style/2pic.jpg" alt="Picture 1 - First stage" style="width:304px;height:228px;">
+		<h5> Picture 2 : 2nd stage </h5>
+		</center>
+		<p> The last part we did was to add UltraSonic ( Sound sensor) sensor to check if there is objects on the X way. If there is object in distance between 0 and 20 (0 < x < 20) 
+		it checks if red light on way X is on, and if it is, flashes white light (photo shot simulation) </p>
+			  <center><img src="style/3pic.jpg" alt="Picture 1 - First stage" style="width:304px;height:228px;">
+		<h5> Picture 3 : 3rd stage </h5>
+		</center>
+		<h1>Issues we encountered...</h1>
+		<p>One of the issues we encountered was finding some of the necessary equipment to complete the hardware part of our project. 
+		For example we needed a number of red, yellow and green LEDs. The issue was that they didn’t have any of these in the class. 
+		We then had to do quite a bit of searching within the building to find the necessary amount.</p>
+		<p>As we decided to incorporate sensors into our project. However perhaps due to not a great deal of people using these 
+		in their project there were none available. This meant we had to do some more searching. We ended up finding a staff member 
+		who had access to some and he gave us a couple.</p>
+		<p>A serious issue that we had towards the end was that the board stopped working for some reason. 
+		The LEDS in the breadboard stopped lighting up as usual and there was no real output. 
+		The issue arose after we unplugged it and used a different computer the next day. 
+		It seemed that there was some issue with the Arduino board communicating with the computer. 
+		After spending a great deal of time troubleshooting we ended up coming across a solution. 
+		We reinstalled the Asip service pack. After this we received output from the board once again. </p>
+		<h1>Things we can improve on... </h1>
+		<p>One thing we could do next time is to change our time spent on the project in the earlier stages. 
+		While we did start not long after we were given the assignment, 
+		we didn’t spend as much time then and it meant a slight rush toward the end. </p>
+		<p>Another thing we could do is to integrate our jobs a little better. During this project we were somewhat doing our own 
+		things which meant we were not all as clued up on each part of the project as we could have been. </p>
+		<p>Another thing that would have been a great help but we didn’t really utilise was to find help from other students outside of
+		our group as well as teachers. With some of the bugs we encountered regarding the code we didn’t have the knowledge to easily fix them.
+		While we did eventually it would have been a much quicker and easier process had we found the proper help. </p>
+<h1>The way our team worked... </h1>
+		<p><b>The racket coding:</b></p>
+		<p>The big part of the code we used was one provided by the challange (the double traffic light), 
+		it gave us a good idea where to start and provided us with good foundation.Some parts of the code were done by different people, but we did assisted each other most of the time.
+		Rimma has created the functions to display numbers in 7-Segment display. Also the function to run them all together in order (9 to 1). While Kojack, Kirushihan, Andre and Welid did a great work at defining a list of states.
+		Antanas has created a function for sensors to check the state of red light and flash the white led. He also did a great job with the pedastrian crossing button, to check if it was clicked and save the value.
+		Ankur supported in most of the parts discussing and writing some part of the code while someone would try to keep things simple.
+		All in all, everyone played a role in racket code, by providing ideas, writing code and making decisions on the way function should work and how to put them together.
+		</p>
+		<p><b>The Report:</b></p>
+		<p>Andre, Kirushihan and Welid wrote the bigger part of the report, Kojack took notes of the problems that occured during the project and listed the solutions we found.
+		Antanas and Rimma used and edited a simple html and css template to put everything into simple, but good looking web-page. Ankur generated quite a bit of ideas on coloring and titles for the different parts of the web page.</p>
+	    <p><b>FSM and other paper work:</b> </p>
+		<p> FSM was quite a challange for most of us, so we spend a lot of time looking for proper resources, and big thank you to Bob for showing us the simpliest way to represent FSM.
+			Most of our ideas was taken down in digital version, but some of them, were done on paper, for instance we created the light list on paper first, then transfered it to racket, same thing we did with FSM.
+			</p>
+		
+	  </div>
+    </div>
+    <div id="footer">
+      <p>Copyright &copy; 2016 | Simple web templates created by HTML5WebTemplates.co.uk and edited by Middlesex University Students for educational purpose!</p>
+    </div>
+  </div>
+</body>
+</html>
