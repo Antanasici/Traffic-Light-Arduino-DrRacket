@@ -68,31 +68,33 @@ We have used the code that was provided with a challenge, to set lights accordin
     * (outputCurrentState) - uses function setLights on list of pins "lights" with the intiger list "lightState"
     * (gotoNextState) - Checks for the current state and changes to the second one.
 
+To change the states with a sequence we have used a code saving time from (current-milliseconds) and comparing it to value. Creating a simple loop. We used a simple approach by calling function (gotoNextState) and sleeping it for a set value to control the time between lights changing. 
 
-## Development setup
+*Picture*
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+After this, we have added 7 segment display with buttons for pedastrian crossing. We did so, by creating a function that catches if the button was pressed, and after cicle finish it's normal sequence it changes to state 13. For 7 segment display, we created different functions to call each number starting from 9 and ending at 1 before changing it to red light ( pedastrian crossing). 
 
-```sh
-make install
-npm test
-```
+*PICTURE*
 
-## Release History
+The last part we did was to add UltraSonic ( Sound sensor) sensor to check if there is objects on the X way. If there is object in distance between 0 and 20 (0 < x < 20) it checks if red light on way X is on, and if it is, flashes white light (photo shot simulation) 
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
+*PICTURE*
 
+## Issues encountered...
+
+One of the issues we encountered was finding some of the necessary equipment to complete the hardware part of our project. For example we needed a number of red, yellow and green LEDs. The issue was that they didn’t have any of these in the class. We then had to do quite a bit of searching within the building to find the necessary amount.
+
+As we decided to incorporate sensors into our project. However perhaps due to not a great deal of people using these in their project there were none available. This meant we had to do some more searching. We ended up finding a staff member who had access to some and he gave us a couple.
+
+A serious issue that we had towards the end was that the board stopped working for some reason. The LEDS in the breadboard stopped lighting up as usual and there was no real output. The issue arose after we unplugged it and used a different computer the next day. It seemed that there was some issue with the Arduino board communicating with the computer. After spending a great deal of time troubleshooting we ended up coming across a solution. We reinstalled the Asip service pack. After this we received output from the board once again. 
+
+## Things can be improved on...
+
+One thing we could do next time is to change our time spent on the project in the earlier stages. While we did start not long after we were given the assignment, we didn’t spend as much time then and it meant a slight rush toward the end.
+
+Another thing we could do is to integrate our jobs a little better. During this project we were somewhat doing our own things which meant we were not all as clued up on each part of the project as we could have been.
+
+Another thing that would have been a great help but we didn’t really utilise was to find help from other students outside of our group as well as teachers. With some of the bugs we encountered regarding the code we didn’t have the knowledge to easily fix them. While we did eventually it would have been a much quicker and easier process had we found the proper help. 
 ## Meta
 
 Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
@@ -101,18 +103,5 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 [https://github.com/yourname/github-link](https://github.com/dbader/)
 
-## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
