@@ -19,11 +19,14 @@ passing the crossing before it changes back to red.
 * Buttons to trigger a pedastrian crossing.
 * The sequence of traffic lights should change on it's own.
 
-## Usage example
+## How that was done...
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+One of the first things I did was to create a sequence of the traffic light events. This was a list of sorts where I listed what any given traffic light would be doing relative to the others. This is necessary as I need a precise sequence otherwise the system would be a complete failure.
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+| Left Z light  | Second Header | Left Z light  | Second Header |
+| ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  | 
 
 ## Development setup
 
