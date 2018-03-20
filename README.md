@@ -1,5 +1,5 @@
-# Traffic Light System built using 
-# Arduino and programmed in DrRacket
+# Traffic Light System
+# Using Arduino and programmed in DrRacket
 > Short blurb about what your product does.
 
 [![NPM Version][npm-image]][npm-url]
