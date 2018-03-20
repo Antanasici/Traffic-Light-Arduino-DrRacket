@@ -1,14 +1,15 @@
 # Traffic Light System
 # Using Arduino and programmed in DrRacket
-> Short blurb about what your product does.
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-One to two paragraph statement about your product and what it does.
+The challenge your team are faced with is to design and prototype a traffic light system to safely control the flow of traffic along a road. As an example, in the road layout shown in figure 1, roadworks along the main road mean that a temporary traffic light system must be installed, with two sets of lights located at the two points marked Z, allowing traffic to flow alternately from left-to-right and then right-to-left.
 
 ![](header.png)
+
+As this work is exploratory in nature, the client is interested in innovation and designs that creative responses to the problem, rather than the delivery of complete working products . So that means that an interesting idea or an unusual experiment may be just as good as a more functional but less innovative prototype.
 
 ## Installation
 
