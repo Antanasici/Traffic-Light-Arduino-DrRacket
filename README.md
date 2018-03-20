@@ -67,15 +67,15 @@ I have used the code that was provided with a challenge, to set lights according
 
 To change the states with a sequence I have used a code saving time from (current-milliseconds) and comparing it to value. Creating a simple loop. I used a simple approach by calling function (gotoNextState) and sleeping it for a set value to control the time between lights changing. 
 
-![alt text](img/1.jpg "Main page")
+![alt text](img/1pic.jpg "Main page")
 
 After this, I have added 7 segment display with buttons for pedestrian crossing. I did so, by creating a function that catches if the button was pressed, and after cycle finish its normal sequence it changes to state 13. For 7 segment display, I created different functions to call each number starting from 9 and ending at 1 before changing it to red light (pedestrian crossing). 
 
-![alt text](img/2.jpg "Main page")
+![alt text](img/2pic.jpg "Main page")
 
 The last part I did was to add UltraSonic (Sound sensor) sensor to check if there is objects on the X way. If there is object in distance between 0 and 20 (0 < x < 20) it checks if red light on way X is on, and if it is, flashes white light (photo shot simulation) 
 
-![alt text](img/3.jpg "Main page")
+![alt text](img/3pic.jpg "Main page")
 
 ## Issues encountered...
 
