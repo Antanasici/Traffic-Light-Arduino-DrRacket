@@ -3,7 +3,7 @@
 
 The challenge your team are faced with is to design and prototype a traffic light system to safely control the flow of traffic along a road. As an example, in the road layout shown in figure 1, roadworks along the main road mean that a temporary traffic light system must be installed, with two sets of lights located at the two points marked Z, allowing traffic to flow alternately from left-to-right and then right-to-left.
 
-![](Report\style\roadwork.png)
+![](img\roadwork.png)
 
 As this work is exploratory in nature, the client is interested in innovation and designs that creative responses to the problem, rather than the delivery of complete working products. So that means that an interesting idea or an unusual experiment may be just as good as a more functional but less innovative prototype.
 
@@ -35,10 +35,10 @@ One of the first things I did was to create a sequence of the traffic light even
 | RED | RED | AMBER | RED |
 | RED | RED | RED | GREEN |
 
-_Finite State Machine (Picture)_
+![](img\FSM.png)
 
 To create the light states, I used binary integers in a list as can be seen below. It was a list of eleven-digit binary values with each of the three numbers representing a traffic light. Meaning 1 to light up and 0 to keep it off. This isn’t too complex and was a good solution for describing lights. The first number represented the red light while the second was an amber and the last was green. Additionally, at the end of each line there is a two-digit value where I can see the pedestrian crossing being represented. List were added into hash table, for easier reference in the future.
-_Code snippet of hash tables containing lists of integers. _
+*Code snippet of hash tables containing lists of integers.*
 ```
 1 (list 1 0 0 1 0 0 1 0 0 0 1 ) ; (1st - RED, 2nd - RED, 3rd - RED.) RED
 2 (list 1 1 0 1 0 0 1 0 0 0 1) ; (1st - RED + AMBER, 2nd - RED, 3rd - RED.) RED
@@ -54,7 +54,7 @@ _Code snippet of hash tables containing lists of integers. _
 12 (list 1 0 0 1 0 0 0 1 0 0 1 ); (1st - RED, 2nd - RED , 3rd - AMBER.)RED
 13 (list 1 0 0 1 0 0 1 0 0 1 0 ) ; (1st - RED, 2nd - RED, 3rd - RED.)GREEN 
 ```
-_1 0 0 - Red | 0 1 0 - Amber | 0 0 1 - Green | 1 1 0 - Red&Amber _
+*1 0 0 - Red | 0 1 0 - Amber | 0 0 1 - Green | 1 1 0 - Red&Amber*
 
 I have used the code that was provided with a challenge, to set lights according to list, and check the previous state, changing it into the new state. 
 
@@ -66,15 +66,15 @@ I have used the code that was provided with a challenge, to set lights according
 
 To change the states with a sequence I have used a code saving time from (current-milliseconds) and comparing it to value. Creating a simple loop. I used a simple approach by calling function (gotoNextState) and sleeping it for a set value to control the time between lights changing. 
 
-*Picture*
+![](img\1.png)
 
 After this, I have added 7 segment display with buttons for pedestrian crossing. I did so, by creating a function that catches if the button was pressed, and after cycle finish its normal sequence it changes to state 13. For 7 segment display, I created different functions to call each number starting from 9 and ending at 1 before changing it to red light (pedestrian crossing). 
 
-*PICTURE*
+![](img\2.png)
 
 The last part I did was to add UltraSonic (Sound sensor) sensor to check if there is objects on the X way. If there is object in distance between 0 and 20 (0 < x < 20) it checks if red light on way X is on, and if it is, flashes white light (photo shot simulation) 
 
-*PICTURE*
+![](img\3.png)
 
 ## Issues encountered...
 
