@@ -42,7 +42,7 @@ One of the first things I did was to create a sequence of the traffic light even
 _Finite State Machine (Picture)_
 
 In order to create the light states we used binary integers in a list as can be seen below. It was a list of eleven digit binary values with each of the three numbers representing a traffic light. Meaning 1 to light up and 0 to keep it off. This isn’t too complex and was a good solution for describing lights. The first number represented the red light while the second was an amber and the last was green. Additionally at the end of each line there is a two digit value where we can see the pedestrian crossing being represented. List were added into hash table, for easier reference in the future.
-
+_Code snippet of hash tables containing list's of integers. _
 ```
 1 (list 1 0 0 1 0 0 1 0 0 0 1 ) ; (1st - RED, 2nd - RED, 3rd - RED.) RED
 2 (list 1 1 0 1 0 0 1 0 0 0 1) ; (1st - RED + AMBER, 2nd - RED, 3rd - RED.) RED
@@ -58,6 +58,16 @@ In order to create the light states we used binary integers in a list as can be 
 12 (list 1 0 0 1 0 0 0 1 0 0 1 ); (1st - RED, 2nd - RED , 3rd - AMBER.)RED
 13 (list 1 0 0 1 0 0 1 0 0 1 0 ) ; (1st - RED, 2nd - RED, 3rd - RED.)GREEN 
 ```
+_1 0 0 - Red | 0 1 0 - Amber | 0 0 1 - Green | 1 1 0 - Red&Amber _
+
+We have used the code that was provided with a challenge, to set lights according to list, and check the previous state, changing it into the new state. 
+
+
+    * (getNextState) - Checks the previous state and decides on a new one
+    * (setLights) - takes a list of itegers to set lights.
+    * (outputCurrentState) - uses function setLights on list of pins "lights" with the intiger list "lightState"
+    * (gotoNextState) - Checks for the current state and changes to the second one.
+
 
 ## Development setup
 
