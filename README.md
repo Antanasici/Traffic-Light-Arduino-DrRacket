@@ -39,6 +39,26 @@ One of the first things I did was to create a sequence of the traffic light even
 | RED | RED | AMBER | RED |
 | RED | RED | RED | GREEN |
 
+_Finite State Machine (Picture)_
+
+In order to create the light states we used binary integers in a list as can be seen below. It was a list of eleven digit binary values with each of the three numbers representing a traffic light. Meaning 1 to light up and 0 to keep it off. This isn’t too complex and was a good solution for describing lights. The first number represented the red light while the second was an amber and the last was green. Additionally at the end of each line there is a two digit value where we can see the pedestrian crossing being represented. List were added into hash table, for easier reference in the future.
+
+```
+1 (list 1 0 0 1 0 0 1 0 0 0 1 ) ; (1st - RED, 2nd - RED, 3rd - RED.) RED
+2 (list 1 1 0 1 0 0 1 0 0 0 1) ; (1st - RED + AMBER, 2nd - RED, 3rd - RED.) RED
+3 (list 0 0 1 1 0 0 1 0 0 0 1) ; (1st - GREEN , 2nd - RED , 3rd - RED.)RED
+4 (list 0 1 0 1 0 0 1 0 0 0 1) ; (1st - AMBER, 2nd - RED , 3rd - RED.) RED
+5 (list 1 0 0 1 0 0 1 0 0 0 1) ; (1st - RED, 2nd - RED , 3rd - RED.) RED
+6 (list 1 0 0 1 1 0 1 0 0 0 1) ; (1st - RED, 2nd - RED + AMBER , 3rd - RED.)RED
+7 (list 1 0 0 0 0 1 1 0 0 0 1) ; (1st - RED, 2nd - GREEN , 3rd - RED .)RED
+8 (list 1 0 0 0 1 0 1 0 0 0 1) ; (1st - RED, 2nd - AMBER , 3rd - RED.)RED
+9 (list 1 0 0 1 0 0 1 0 0 0 1) ; (1st - RED , 2nd - RED , 3rd -RED .) RED
+10 (list 1 0 0 1 0 0 1 1 0 0 1) ; (1st - RED, 2nd - RED , 3rd - AMBER.) RED
+11 (list 1 0 0 1 0 0 0 0 1 0 1 ) ; (1st - RED, 2nd - RED , 3rd - GREEN .)RED
+12 (list 1 0 0 1 0 0 0 1 0 0 1 ); (1st - RED, 2nd - RED , 3rd - AMBER.)RED
+13 (list 1 0 0 1 0 0 1 0 0 1 0 ) ; (1st - RED, 2nd - RED, 3rd - RED.)GREEN 
+```
+
 ## Development setup
 
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
