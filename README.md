@@ -25,8 +25,19 @@ One of the first things I did was to create a sequence of the traffic light even
 
 | Left Z light  | Right Z light |    Light X    |    Light Y    |
 |      :---:       |      :---:       |      :---:       |      :---:       |
-| RED| Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | 
+| RED| RED  | RED  | RED  |
+| RED+AMBER  | RED  | RED  | RED  | 
+| GREEN  | RED | RED | RED |
+| AMBER | RED | RED | RED |
+| RED | RED | RED | RED |
+| RED | RED+ AMBER | RED | RED |
+| RED | GREEN | RED | RED |
+| RED | AMBER | RED | RED |
+| RED | RED | RED | RED |
+| RED | RED | RED+AMBER | RED |
+| RED | RED | GREEN | RED |
+| RED | RED | AMBER | RED |
+| RED | RED | RED | GREEN |
 
 ## Development setup
 
