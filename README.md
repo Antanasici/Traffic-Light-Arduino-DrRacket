@@ -97,11 +97,9 @@ Another thing we could do is to integrate our jobs a little better. During this 
 Another thing that would have been a great help but we didn’t really utilise was to find help from other students outside of our group as well as teachers. With some of the bugs we encountered regarding the code we didn’t have the knowledge to easily fix them. While we did eventually it would have been a much quicker and easier process had we found the proper help. 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Antanas Icikovic – [LinkedIn](www.linkedin.com/in/antanas-icikovic) – Find me here!
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[Video of the project on YouTube](https://www.youtube.com/)
 
 
 
