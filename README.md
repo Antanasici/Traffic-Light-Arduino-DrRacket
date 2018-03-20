@@ -23,9 +23,9 @@ passing the crossing before it changes back to red.
 
 One of the first things I did was to create a sequence of the traffic light events. This was a list of sorts where I listed what any given traffic light would be doing relative to the others. This is necessary as I need a precise sequence otherwise the system would be a complete failure.
 
-| Left Z light  | Second Header | Left Z light  | Second Header |
-| ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Left Z light  | Right Z light |    Light X    |    Light Y    |
+|      :---:       |      :---:       |      :---:       |      :---:       |
+| RED| Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  | 
 
 ## Development setup
